@@ -8,8 +8,8 @@
         <MudTextField T="string" Label="Nombre" @bind-Value="model.Name" Required="true" RequiredError="Por favor rellena el nombre" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
         <MudTextField T="string" Label="Apellido" @bind-Value="model.LastName" Required="true" RequiredError="Por favor rellena el apellido" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
 
-        <MudTextField T="string" Label="Nombre acompañante (si aplica) " @bind-Value="model.NameAcompanante" Required="true" RequiredError="Por favor rellena el nombre" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
-        <MudTextField T="string" Label="Apellido acompañante (si aplica) " @bind-Value="model.LastNameAcompanante" Required="true" RequiredError="Por favor rellena el apellido" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
+        <MudTextField T="string" Label="Nombre acompañante (si aplica) " @bind-Value="model.NameAcompanante" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
+        <MudTextField T="string" Label="Apellido acompañante (si aplica) " @bind-Value="model.LastNameAcompanante" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Person" AdornmentColor="Color.Primary" />
 
  @*        <MudSelect @bind-Value="model.Buses" Required="true" RequiredError="Por favor selecciona una opción" Class="mt-2" T="string" Label="Autobuses" MultiSelection="true" @bind-SelectedValues="opcionesBus" AdornmentIcon="@Icons.Material.Filled.DirectionsBus" AdornmentColor="Color.Primary">
             @foreach (var bus in buses)
