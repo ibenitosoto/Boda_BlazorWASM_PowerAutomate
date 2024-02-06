@@ -22,11 +22,9 @@
         {
             @if (specialmenuDropdown.SelectedValues.Count() == 1 && specialmenuDropdown.SelectedValues.FirstOrDefault() == "Otros")
             {
-                <MudTextField T="string" Label="Por favor escribe la intolerancia/menú no listado anteriormente" @bind-Value="model.SpecialMenuOther" Required="true" RequiredError="Por favor añade la intolerancia/menú" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary" />
+                <MudTextField T="string" Label="Escribe la intolerancia/menú no listada" @bind-Value="model.SpecialMenuOther" Required="true" RequiredError="Por favor añade la intolerancia/menú" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary" />
             }
         }
-
-
 
         @if (isSuccessfulWriteToExcel)
         {
