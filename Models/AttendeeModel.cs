@@ -12,6 +12,8 @@
 
         public string SpecialMenu { get; set; }
 
+        public string SpecialMenuOther { get; set; }
+
         public string Buses { get; set; }
 
         public string NameAcompanante { get; set; }

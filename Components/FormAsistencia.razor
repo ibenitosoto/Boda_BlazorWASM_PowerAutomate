@@ -11,18 +11,27 @@
                       Validation="@(new EmailAddressAttribute() {ErrorMessage = "La dirección de email es inválida"})" />
 
 
-        <MudSelect @bind-Value="model.SpecialMenu" Class="mt-2" T="string" Label="Intolerancias - Menú especial" MultiSelection="true" @bind-SelectedValues="opcionesMenu" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary">
+        <MudSelect @ref="specialmenuDropdown" @bind-Value="model.SpecialMenu" Class="mt-2" T="string" Label="Intolerancias - Menú especial" MultiSelection="true" @bind-SelectedValues="opcionesMenu" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary">
             @foreach (var intolerancia in intolerancias)
             {
                 <MudSelectItem T="string" Value="@intolerancia">@intolerancia</MudSelectItem>
             }
         </MudSelect>
 
+        @if (specialmenuDropdown is not null)
+        {
+            @if (specialmenuDropdown.SelectedValues.Count() == 1 && specialmenuDropdown.SelectedValues.FirstOrDefault() == "Otros")
+            {
+                <MudTextField T="string" Label="Por favor escribe la intolerancia/menú no listado anteriormente" @bind-Value="model.SpecialMenuOther" Required="true" RequiredError="Por favor añade la intolerancia/menú" Adornment="Adornment.End" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary" />
+            }
+        }
+
+
 
         @if (isSuccessfulWriteToExcel)
         {
             <div class="d-flex align-center justify-center mt-8">
-                <MudButton Variant="Variant.Filled" Color="Color.Primary">GRACIAS!</MudButton>
+                <MudButton Variant="Variant.Filled" Color="Color.Primary">¡GRACIAS!</MudButton>
             </div>
         }
         else
@@ -41,6 +50,7 @@
     MudTextField<string> pwField1;
     MudForm form;
     bool isSuccessfulWriteToExcel;
+    MudSelect<string> specialmenuDropdown;
 
     private AttendeeModel model = new AttendeeModel();
 
@@ -94,7 +104,8 @@
             "\"Nombre\" : " + "\"" + model.Name + "\"," +
             "\"Apellido\" : " + "\"" + model.LastName + "\"," +
             "\"Email\" : " + "\"" + model.Email + "\"," +
-            "\"Intolerancias-Menu\" : " + "\"" + model.SpecialMenu + "\"" +
+            "\"Intolerancias-Menu\" : " + "\"" + model.SpecialMenu + "\"," +
+            "\"Intolerancias-Menu(OTROS)\" : " + "\"" + model.SpecialMenuOther + "\"" +
             " }";
 
         bool isSuccessfullRequest = HTTPrequest.SendRequest(json, requestUrl);
