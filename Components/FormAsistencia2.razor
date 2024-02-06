@@ -515,12 +515,17 @@
             await ScrollToElement("danosDatos", 2000);
         }
 
-        if (!firstRender && IsAttendanceConfirmed && SelectedOptionAcompañante is not null)
+        if (!firstRender && IsAttendanceConfirmed && SelectedOptionAcompañante is not "Option3")
+        {
+            await ScrollToElement("tusDatosForm", 2000);
+        }
+
+        if (!firstRender && IsAttendanceConfirmed && SelectedOptionAcompañante is "Option3")
         {
             await ScrollToElement("opcionNiños", 2000);
         }
 
-        if (!firstRender && SelectedOptionAcompañante is not null && SelectedOptionNiños is not null)
+        if (!firstRender && SelectedOptionNiños is not null)
         {
             await ScrollToElement("tusDatosForm", 2000);
         }
