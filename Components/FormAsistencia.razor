@@ -84,6 +84,11 @@
     {
         string requestUrl = "https://prod-194.westeurope.logic.azure.com:443/workflows/a5eae2eec05a45a281292a5e4d1d50b8/triggers/manual/paths/invoke?api-version=2016-06-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=9JW_D3CMcEYUfqhMI_L_A4_aXWf3adrCHqLaSCzCKsc";
 
+        if (model.SpecialMenu is null)
+        {
+            model.SpecialMenu = "";
+        }
+
         // Builds the request body in JSON format string and converts it to StringContent to be read by HTTPClient
         string json = "{ " +
             "\"Nombre\" : " + "\"" + model.Name + "\"," +
