@@ -11,7 +11,7 @@
                       Validation="@(new EmailAddressAttribute() {ErrorMessage = "La dirección de email es inválida"})" />
 
 
-        <MudSelect @bind-Value="model.SpecialMenu" Required="true" RequiredError="Por favor selecciona una opción" Class="mt-2" T="string" Label="Intolerancias - Menú especial" MultiSelection="true" @bind-SelectedValues="opcionesMenu" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary">
+        <MudSelect @bind-Value="model.SpecialMenu" Class="mt-2" T="string" Label="Intolerancias - Menú especial" MultiSelection="true" @bind-SelectedValues="opcionesMenu" AdornmentIcon="@Icons.Material.Filled.Fastfood" AdornmentColor="Color.Primary">
             @foreach (var intolerancia in intolerancias)
             {
                 <MudSelectItem T="string" Value="@intolerancia">@intolerancia</MudSelectItem>
